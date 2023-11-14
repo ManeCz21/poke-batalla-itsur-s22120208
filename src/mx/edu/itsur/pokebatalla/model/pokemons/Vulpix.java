@@ -1,17 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mx.edu.itsur.pokebatalla.model.pokemons;
+package mx.edu.itsur.pokebatalla.model.Pokemons;
+
 
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
+import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.OndaIgnea;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
-import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
+
+
 
 /**
  *
- * @author Juan Pablo Torres Zavala
+ * @author Manuel Cano Zavala
  */
 public class Vulpix extends Pokemon{
     public enum Movimientos {
@@ -35,19 +34,25 @@ public class Vulpix extends Pokemon{
         this.nombre = nombre;
 
     }
-     public void atacar(Pokemon oponente, Vulpix.Movimientos movimientoAUtilizar) {
+      @Override
+        public Enum[] getMovimientos() {
+            return Vulpix.Movimientos.values();
+        }
+        @Override
+     public void atacar(Pokemon oponente, int ordinalMovimiento) {
 
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;
+        Vulpix.Movimientos movimientoAUtilizar = Vulpix.Movimientos.values()[ordinalMovimiento];
         switch (movimientoAUtilizar) {
+            case ATAQUE_RAPIDO:
+                instanciaMovimiento = new AtaqueRapido();
+                break;
             case ONDA_IGNEA:
                 instanciaMovimiento = new OndaIgnea();
                 break;
-            case LATIGO:
+                case LATIGO:
                 instanciaMovimiento = new Latigo();
-                break;
-                case ATAQUE_RAPIDO:
-                instanciaMovimiento = new AtaqueRapido();
                 break;
 
             //Otros movimientos aquí...
@@ -56,15 +61,9 @@ public class Vulpix extends Pokemon{
         }
 
         //Aplicar el movimiento
-        atacar(oponente, instanciaMovimiento);
+        instanciaMovimiento.utilizar(this, oponente);
 
     }
-     
-    @Override
-    protected void atacar(Pokemon oponente, Movimiento move) {
-
-        //Aplicar el movimiento
-        move.utilizar(this, oponente);
-    }     
     
 }
+

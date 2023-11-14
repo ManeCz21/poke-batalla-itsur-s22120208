@@ -7,12 +7,13 @@ package mx.edu.itsur.pokebatalla.model.moves;
 /**
  *
  * @author Manuel Cano Zavala
+ *
  */
-public class OndaIgnea extends MovimientoEspecial {
-         public OndaIgnea() {
-        this.tipo = Movimiento.TiposDeMovimiento.FUEGO;
-        this.potencia = 95;
-        this.precision = 90;
-        this.puntosPoder = 16;   
+public class Hipnosis extends MovimientoEstado {
+     public Hipnosis() {
+        this.tipo = Movimiento.TiposDeMovimiento.PSIQUICO;
+        this.potencia = 100;
+        this.precision = 60;
+        this.puntosPoder = 32;   
 }
 }

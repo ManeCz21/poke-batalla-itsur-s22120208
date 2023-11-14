@@ -1,24 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mx.edu.itsur.pokebatalla.model.pokemons;
+package mx.edu.itsur.pokebatalla.model.Pokemons;
 
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 /**
- *
- * @author FJML1983
+ * Manuel Cano Zavala
  */
 public class Bullbasaur extends Pokemon {
-    
-    public enum Movimientos {
-        ATAQUE_RAPIDO,
-        LATIGO
-    }
-    
+
     public Bullbasaur() {
         tipo = "PLANTA/VENENO";
         hp = 45;
@@ -26,20 +16,35 @@ public class Bullbasaur extends Pokemon {
         defensa = 49;
         nivel = 1;
         precision = 4;
-        xp = 64; 
+        xp = 64;
     }
 
-    //Constructor alterno 1
     public Bullbasaur(String nombre) {
-        this(); //invocando al constructor default
+        this();
         this.nombre = nombre;
-        
     }
-    
-    public void atacar(Pokemon oponente, Bullbasaur.Movimientos movimientoAUtilizar) {
 
-        //Instanciar el movimiento solicitado
+    public enum Movimientos {
+        ATAQUE_RAPIDO,
+        LATIGO
+    }
+
+    @Override
+    public Enum[] getMovimientos() {
+        return Bullbasaur.Movimientos.values();
+    }
+
+    @Override
+    public void atacar(Pokemon oponente, int ordinalMovimiento) {
+
         Movimiento instanciaMovimiento;
+
+        if (this.hp <= 0) {
+            System.out.println("Bullbasaur. esta agotado y no puede realizar mas movimientos.");
+            return;
+        }
+        Bullbasaur.Movimientos movimientoAUtilizar = Bullbasaur.Movimientos.values()[ordinalMovimiento];
+
         switch (movimientoAUtilizar) {
             case ATAQUE_RAPIDO:
                 instanciaMovimiento = new AtaqueRapido();
@@ -47,22 +52,11 @@ public class Bullbasaur extends Pokemon {
             case LATIGO:
                 instanciaMovimiento = new Latigo();
                 break;
-
-            //Otros movimientos aquí...
             default:
                 throw new AssertionError();
-            
         }
-        
-        //instanciaMovimiento.utilizar(this, oponente);
-        atacar(oponente, instanciaMovimiento);
-    }
-    
-    @Override
-    protected void atacar(Pokemon oponente, Movimiento move) {
 
-        //Aplicar el movimiento
-        move.utilizar(this, oponente);
+        instanciaMovimiento.utilizar(this, oponente);
+
     }
-    
 }

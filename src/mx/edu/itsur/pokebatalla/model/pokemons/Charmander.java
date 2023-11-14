@@ -1,30 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mx.edu.itsur.pokebatalla.model.pokemons;
+package mx.edu.itsur.pokebatalla.model.Pokemons;
 
-import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
-import mx.edu.itsur.pokebatalla.model.moves.Grunido;
-import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
-import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
+import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 
 /**
- *
- * @author FJML1983
- */
+Manuel Cano Zavala 
+*/
 public class Charmander extends Pokemon {
 
-    /**
-     * Movimientos que puede realizar el Pokémon
-     */
     public enum Movimientos {
         ATAQUE_RAPIDO,
-        GRUNIDO,
-        //Otros movimientos...
     }
-    
+
     public Charmander() {
         tipo = "FUEGO";
         hp = 39;
@@ -32,6 +19,7 @@ public class Charmander extends Pokemon {
         defensa = 43;
         nivel = 1;
         precision = 4;
+        xp = 64;
     }
 
     //Constructor alterno 1
@@ -39,8 +27,22 @@ public class Charmander extends Pokemon {
         this(); //invocando al constructor default
         this.nombre = nombre;
     }
-    
-    public void atacar(Pokemon oponente, Charmander.Movimientos movimientoAUtilizar) {
+
+    //METODOS 
+    @Override
+    public Enum[] getMovimientos() {
+        return Charmander.Movimientos.values();
+    }
+
+    @Override
+    public void atacar(Pokemon oponente, int ordinalMovimiento) {
+
+        if (this.hp <= 0) {
+            System.out.println("Charmander. esta agotado y no puede realizar mas movimientos.");
+            return;
+        }
+
+        Charmander.Movimientos movimientoAUtilizar = Charmander.Movimientos.values()[ordinalMovimiento];
 
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;
@@ -48,22 +50,12 @@ public class Charmander extends Pokemon {
             case ATAQUE_RAPIDO:
                 instanciaMovimiento = new AtaqueRapido();
                 break;
-            case GRUNIDO:
-                instanciaMovimiento = new Grunido();
-                break;
-            //Otros movimientos aquí...
             default:
                 throw new AssertionError();
         }
 
-        //Aplicar el movimiento
-        atacar(oponente, instanciaMovimiento);
-        
+        instanciaMovimiento.utilizar(this, oponente);
+
     }
-    
-    @Override
-    protected void atacar(Pokemon oponente, Movimiento move) {
-        move.utilizar(this, oponente);
-    }
-    
+
 }

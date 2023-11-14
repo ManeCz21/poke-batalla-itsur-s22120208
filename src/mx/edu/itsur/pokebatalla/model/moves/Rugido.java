@@ -6,11 +6,11 @@ package mx.edu.itsur.pokebatalla.model.moves;
 
 /**
  *
- * @author Juan Pablo Torres Zavala
+ * @author Manuel Cano Zavala
  */
 public class Rugido extends MovimientoFisico{
      public Rugido() {
-        this.tipo = TiposDeMovimiento.NORMAL;
+        this.tipo = Movimiento.TiposDeMovimiento.NORMAL;
         this.potencia = 0;
         this.precision = 0;
         this.puntosPoder = 32;

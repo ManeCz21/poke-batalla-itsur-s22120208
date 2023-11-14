@@ -6,11 +6,11 @@ package mx.edu.itsur.pokebatalla.model.moves;
 
 /**
  *
- * @author Juan Pablo Torres Zavala
+ * @author Manuel Cano Zavala
  */
 public class Triturar extends MovimientoEstado {
      public Triturar() {
-        this.tipo = TiposDeMovimiento.SINIESTRO;
+        this.tipo = Movimiento.TiposDeMovimiento.SINIESTRO;
         this.potencia = 80;
         this.precision = 100;
         this.puntosPoder = 24;   
