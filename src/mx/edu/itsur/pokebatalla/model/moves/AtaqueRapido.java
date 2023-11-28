@@ -5,7 +5,7 @@
 package mx.edu.itsur.pokebatalla.model.moves;
 
 /**
- * Manuel Cano Zavala
+ * @author Manuel Cano Zavala s22120208
  */
 public class AtaqueRapido extends Movimiento {
     

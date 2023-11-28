@@ -1,14 +1,14 @@
 
 package mx.edu.itsur.pokebatalla.model.Battles;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import mx.edu.itsur.pokebatalla.model.Pokemons.Pokemon;
 /**
  *
- * @author Manuel Cano Zavala
+ * @author Manuel Cano Zavala s22120208
  */
-public class Entrenador {
+public class Entrenador implements Serializable{
 
     protected String nombre;
     protected List<Pokemon> pokemonsCapturados;
@@ -28,12 +28,12 @@ public class Entrenador {
     public void instruirMovimientoAlPokemonActual(Pokemon oponente, int ordinalMovimiento) {
         
         if (pokemonActual == null) {
-            System.out.println("No hay un Pokémon actualmente seleccionado.");
+            System.out.println("No tenemos pokemones seleccionados.");
             return;
         }
 
         if (ordinalMovimiento < 0 || ordinalMovimiento >= pokemonActual.getMovimientos().length) {
-            System.out.println("El ordinal de movimiento no es válido.");
+            System.out.println("El movimiento no es válido.");
             return;
         }
         // Llamar al metodo atacar del Pokemon actual

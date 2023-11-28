@@ -2,6 +2,7 @@
 package mx.edu.itsur.pokebatalla.model.Pokemons;
 
 
+import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.moves.Lenguetazo;
 import mx.edu.itsur.pokebatalla.model.moves.RayoConfuso;
 import mx.edu.itsur.pokebatalla.model.moves.Hipnosis;
@@ -9,9 +10,9 @@ import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 /**
  *
- * @author Manuel Cano Zavala
+ * @author Manuel Cano Zavala s22120208
  */
-public class Gengar extends Pokemon{
+public class Gengar extends Pokemon implements Serializable{
     public enum Movimientos {
         RAYO_CONFUSO,
         HIPNOSIS,

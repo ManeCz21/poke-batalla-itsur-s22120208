@@ -1,6 +1,7 @@
 package mx.edu.itsur.pokebatalla.model.Pokemons;
 
 
+import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.OndaIgnea;
@@ -10,9 +11,9 @@ import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 
 /**
  *
- * @author Manuel Cano Zavala
+ * @author Manuel Cano Zavala s22120208
  */
-public class Vulpix extends Pokemon{
+public class Vulpix extends Pokemon implements Serializable{
     public enum Movimientos {
         ONDA_IGNEA,
         LATIGO,

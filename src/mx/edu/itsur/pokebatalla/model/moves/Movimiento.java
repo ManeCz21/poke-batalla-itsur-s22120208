@@ -2,7 +2,7 @@ package mx.edu.itsur.pokebatalla.model.moves;
 import mx.edu.itsur.pokebatalla. model.Pokemons.Pokemon;
 
 /**
- * Manuel Cano Zavala
+ * @author Manuel Cano Zavala s22120208
  */
 public class Movimiento {
 

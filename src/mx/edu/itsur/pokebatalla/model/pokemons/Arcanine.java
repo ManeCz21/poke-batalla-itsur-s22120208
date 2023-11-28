@@ -1,7 +1,7 @@
 package mx.edu.itsur.pokebatalla.model.Pokemons;
 
 
-
+import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.moves.Lanzallamas;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.Rugido;
@@ -9,9 +9,9 @@ import mx.edu.itsur.pokebatalla.model.moves.Triturar;
 
 /**
  *
- * @author Manuel Cano Zavala
+ * @author Manuel Cano Zavala s22120208
  */
-public class Arcanine extends Pokemon {
+public class Arcanine extends Pokemon implements Serializable {
         public enum Movimientos {
         LANZALLAMAS,
         RUGIDO,
